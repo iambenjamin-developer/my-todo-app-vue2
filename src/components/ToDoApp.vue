@@ -7,17 +7,8 @@
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field v-model="name" :counter="10" :rules="nameRules" label="To Do Item" required></v-text-field>
 
-          <v-btn color="primary" class="mr-4" @click="reset">Add</v-btn>
+          <v-btn color="primary" class="mr-6" @click="reset">Add</v-btn>
 
-          <v-btn class="ma-2" color="primary" dark>
-            Mark as Completed
-            <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
-          </v-btn>
-
-          <v-btn class="ma-2" color="red" dark>
-            Mark as Incompleted
-            <v-icon dark right>mdi-minus-circle</v-icon>
-          </v-btn>
         </v-form>
       </v-col>
     </v-row>
@@ -37,12 +28,16 @@
               <tr v-for="toDoItem in result" :key="toDoItem.id">
                 <td>{{ toDoItem.id }}</td>
                 <td>{{ toDoItem.name }}</td>
-                <!-- <td>
-                  <strong>{{ toDoItem.isCompleted }}</strong>
-                </td>-->
                 <td>
-                  <strong v-if="toDoItem.isCompleted">Si</strong>
-                  <strong v-else>NO</strong>
+                  <v-btn v-if="toDoItem.isCompleted" class="ma-2" color="green" dark>
+                    Done
+                    <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
+                  </v-btn>
+
+                  <v-btn v-else class="ma-2" color="warning" dark>
+                    Incompleted
+                    <v-icon dark right>mdi-minus-circle</v-icon>
+                  </v-btn>
                 </td>
 
                 <td>
