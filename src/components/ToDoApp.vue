@@ -8,8 +8,17 @@
           <v-text-field v-model="name" :counter="10" :rules="nameRules" label="To Do Item" required></v-text-field>
 
           <v-btn color="primary" class="mr-4" @click="reset">Add</v-btn>
-        </v-form>
 
+          <v-btn class="ma-2" color="primary" dark>
+            Mark as Completed
+            <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
+          </v-btn>
+
+          <v-btn class="ma-2" color="red" dark>
+            Mark as Incompleted
+            <v-icon dark right>mdi-minus-circle</v-icon>
+          </v-btn>
+        </v-form>
       </v-col>
     </v-row>
     <v-row class="text-left">
@@ -20,7 +29,7 @@
               <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>IsCompleted</th>
+                <th>State</th>
                 <th>Delete</th>
               </tr>
             </thead>
