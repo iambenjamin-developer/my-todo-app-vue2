@@ -62,6 +62,7 @@ const apiBackend = axios.create({
   baseURL: 'https://localhost:44305/api'
 })
 
+/*
 apiBackend.get('/TodoItems')
   .then(response => {
 
@@ -90,7 +91,7 @@ apiBackend.delete(`/TodoItems/${myId}`)
     console.log(response)
   })
 
-
+*/
 export default {
   data: () => ({
     result: null
