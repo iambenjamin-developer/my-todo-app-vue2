@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="toDoItem in toDoItems" :key="toDoItem.id">
+              <tr v-for="toDoItem in result" :key="toDoItem.id">
                 <td>{{ toDoItem.id }}</td>
                 <td>{{ toDoItem.name }}</td>
                 <td>{{ toDoItem.isCompleted }}</td>
@@ -59,36 +59,16 @@ apiBackend.post('/TodoItems', body)
   })
 
 export default {
-name: 'ToDoApp',
-
   data: () => ({
-    toDoItems: [
-      {
-        id: 1,
-        name: 'Banana',
-        isCompleted: true
-      },
-      {
-        id: 2,
-        name: 'Manzana',
-        isCompleted: true
-      },
-      {
-        id: 3,
-        name: 'Naranja',
-        isCompleted: false
-      },
-      {
-        id: 4,
-        name: 'Melón',
-        isCompleted: true
-      },
-      {
-        id: 5,
-        name: 'Sandia',
-        isCompleted: false
-      },
-    ],
+    result: null
   }),
-}
+  created() {
+    apiBackend.get('/TodoItems')
+      .then((result) => {
+
+        this.result = result.data;
+
+      })
+  }
+};
 </script>
