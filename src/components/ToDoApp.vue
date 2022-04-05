@@ -3,7 +3,20 @@
     <v-row class="text-center">
       <v-col cols="12">
         <h1>To Do Items</h1>
+
+        <v-form ref="form" v-model="valid" lazy-validation>
+          <v-text-field
+            v-model="name"
+            :counter="10"
+            :rules="nameRules"
+            label="To Do Item"
+            required
+          ></v-text-field>
+
+          <v-btn color="primary" class="mr-4" @click="reset">Add</v-btn>
+        </v-form>
       </v-col>
+
     </v-row>
     <v-row class="text-left">
       <v-col cols="12">
