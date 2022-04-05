@@ -59,7 +59,7 @@ apiBackend.post('/TodoItems', body)
   })
 
 export default {
-  name: 'HelloWorld',
+name: 'ToDoApp',
 
   data: () => ({
     toDoItems: [
