@@ -25,6 +25,24 @@
 </template>
 
 <script>
+import axios from "axios"
+
+const apiKey = 'Me3g0dmOl356MTA9Go2QT7ywRk3LtW7X'
+
+const apiBackend = axios.create({
+  baseURL:'https://api.giphy.com/v1/gifs',
+  params:{
+    api_key: apiKey
+  }
+})
+
+apiBackend.get('/random')
+          .then( response => {
+
+            console.log(response.data.data)
+          })
+
+
   export default {
     name: 'HelloWorld',
 
