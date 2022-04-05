@@ -38,20 +38,20 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <ToDoApp/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import ToDoApp from './components/ToDoApp.vue';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-  },
+    ToDoApp
+},
 
   data: () => ({
     //
