@@ -37,7 +37,14 @@
               <tr v-for="toDoItem in result" :key="toDoItem.id">
                 <td>{{ toDoItem.id }}</td>
                 <td>{{ toDoItem.name }}</td>
-                <td>{{ toDoItem.isCompleted }}</td>
+                <!-- <td>
+                  <strong>{{ toDoItem.isCompleted }}</strong>
+                </td>-->
+                <td>
+                  <strong v-if="toDoItem.isCompleted">Si</strong>
+                  <strong v-else>NO</strong>
+                </td>
+
                 <td>
                   <v-btn class="mx-2" fab dark small color="red">
                     <v-icon dark>mdi-delete</v-icon>
