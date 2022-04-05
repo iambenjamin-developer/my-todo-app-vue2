@@ -17,17 +17,28 @@ import axios from "axios"
 
 
 const apiBackend = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com'
+  baseURL: 'https://localhost:44305/api'
 })
 
-apiBackend.get('/todos')
+apiBackend.get('/TodoItems')
   .then(response => {
 
-    const toDoList = response.data;
-    console.log(toDoList)
+    const todoItems = response.data;
+    console.log("Respuesta del Get All...")
+    console.log(todoItems)
   })
 
+const body = {
+  name: 'Sandia'
+}
 
+apiBackend.post('/TodoItems', body)
+      .then(response => {
+
+        const respuesta = response.data;
+        console.log("Respuesta del post...")
+        console.log(respuesta)
+      })
 export default {
   name: 'HelloWorld',
 
