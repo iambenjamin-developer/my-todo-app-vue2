@@ -58,6 +58,15 @@ apiBackend.post('/TodoItems', body)
     console.log(respuesta)
   })
 
+const myId = 1003;
+apiBackend.delete(`/TodoItems/${myId}`)
+  .then(response => {
+
+    console.log("Respuesta del DELETE...")
+    console.log(response)
+  })
+
+
 export default {
   data: () => ({
     result: null
