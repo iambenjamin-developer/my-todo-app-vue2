@@ -11,14 +11,16 @@
           <template v-slot:default>
             <thead>
               <tr>
+                <th>Id</th>
                 <th>Name</th>
-                <th>Calories</th>
+                <th>IsCompleted</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in desserts" :key="item.name">
-                <td>{{ item.name }}</td>
-                <td>{{ item.calories }}</td>
+              <tr v-for="toDoItem in toDoItems" :key="toDoItem.id">
+                <td>{{ toDoItem.id }}</td>
+                <td>{{ toDoItem.name }}</td>
+                <td>{{ toDoItem.isCompleted }}</td>
               </tr>
             </tbody>
           </template>
@@ -55,50 +57,36 @@ apiBackend.post('/TodoItems', body)
     console.log("Respuesta del post...")
     console.log(respuesta)
   })
+
 export default {
   name: 'HelloWorld',
 
   data: () => ({
-    desserts: [
+    toDoItems: [
       {
-        name: 'Frozen Yogurt',
-        calories: 159,
+        id: 1,
+        name: 'Banana',
+        isCompleted: true
       },
       {
-        name: 'Ice cream sandwich',
-        calories: 237,
+        id: 2,
+        name: 'Manzana',
+        isCompleted: true
       },
       {
-        name: 'Eclair',
-        calories: 262,
+        id: 3,
+        name: 'Naranja',
+        isCompleted: false
       },
       {
-        name: 'Cupcake',
-        calories: 305,
+        id: 4,
+        name: 'Melón',
+        isCompleted: true
       },
       {
-        name: 'Gingerbread',
-        calories: 356,
-      },
-      {
-        name: 'Jelly bean',
-        calories: 375,
-      },
-      {
-        name: 'Lollipop',
-        calories: 392,
-      },
-      {
-        name: 'Honeycomb',
-        calories: 408,
-      },
-      {
-        name: 'Donut',
-        calories: 452,
-      },
-      {
-        name: 'KitKat',
-        calories: 518,
+        id: 5,
+        name: 'Sandia',
+        isCompleted: false
       },
     ],
   }),
