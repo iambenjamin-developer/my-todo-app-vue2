@@ -2,11 +2,27 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="100" />
+        <h1>To Do Items</h1>
       </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">To Do App</h1>
+    </v-row>
+    <v-row class="text-left">
+      <v-col cols="12">
+        <v-simple-table dark>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Calories</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in desserts" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>{{ item.calories }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
       </v-col>
     </v-row>
   </v-container>
@@ -33,64 +49,56 @@ const body = {
 }
 
 apiBackend.post('/TodoItems', body)
-      .then(response => {
+  .then(response => {
 
-        const respuesta = response.data;
-        console.log("Respuesta del post...")
-        console.log(respuesta)
-      })
+    const respuesta = response.data;
+    console.log("Respuesta del post...")
+    console.log(respuesta)
+  })
 export default {
   name: 'HelloWorld',
 
   data: () => ({
-    ecosystem: [
+    desserts: [
       {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
+        name: 'Frozen Yogurt',
+        calories: 159,
       },
       {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
+        name: 'Ice cream sandwich',
+        calories: 237,
       },
       {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
+        name: 'Eclair',
+        calories: 262,
       },
       {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
+        name: 'Cupcake',
+        calories: 305,
       },
       {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
+        name: 'Gingerbread',
+        calories: 356,
       },
       {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
+        name: 'Jelly bean',
+        calories: 375,
       },
       {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
+        name: 'Lollipop',
+        calories: 392,
       },
       {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
+        name: 'Honeycomb',
+        calories: 408,
       },
       {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
+        name: 'Donut',
+        calories: 452,
+      },
+      {
+        name: 'KitKat',
+        calories: 518,
       },
     ],
   }),
