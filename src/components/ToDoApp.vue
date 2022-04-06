@@ -2,13 +2,12 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <h1>To Do Items</h1>
-
+        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="30" />
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field
             @keydown.enter="addToDoItem(toDoItemName)"
             v-model="toDoItemName"
-            label="To Do Item"
+            label="Add To Do Item"
             required
           ></v-text-field>
 
