@@ -87,38 +87,20 @@ const apiBackend = axios.create({
 })
 
 const refreshTable = () => {
+
   window.location.reload();
+
 }
+
 /*
 apiBackend.get('/TodoItems')
   .then(response => {
-
-    const todoItems = response.data;
-    console.log("Respuesta del Get All...")
-    console.log(todoItems)
+    const statusCode = response.status;
+    console.log(`Get All TodoItems has been executed - Status Code:${statusCode}`);
   })
-
-const body = {
-  name: 'Sandia'
-}
-
-apiBackend.post('/TodoItems', body)
-  .then(response => {
-
-    const respuesta = response.data;
-    console.log("Respuesta del post...")
-    console.log(respuesta)
-  })
-
-const myId = 1003;
-apiBackend.delete(`/TodoItems/${myId}`)
-  .then(response => {
-
-    console.log("Respuesta del DELETE...")
-    console.log(response)
-  })
-
 */
+
+
 export default {
   data: () => ({
     result: null
