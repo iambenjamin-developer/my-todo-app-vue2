@@ -6,9 +6,8 @@
 
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field
+            @keydown.enter="addToDoItem(toDoItemName)"
             v-model="toDoItemName"
-            :counter="10"
-            :rules="nameRules"
             label="To Do Item"
             required
           ></v-text-field>
