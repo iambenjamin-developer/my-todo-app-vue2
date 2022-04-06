@@ -7,11 +7,14 @@
           <v-text-field
             @keydown.enter="addToDoItem(toDoItemName)"
             v-model="toDoItemName"
-            label="Add To Do Item"
+            label="To Do Item"
             required
           ></v-text-field>
 
-          <v-btn color="primary" class="mr-6" v-on:click="addToDoItem(toDoItemName)">Add</v-btn>
+          <v-btn color="primary" class="mr-6" v-on:click="addToDoItem(toDoItemName)">
+            Add
+            <v-icon dark right>mdi-plus</v-icon>
+          </v-btn>
         </v-form>
       </v-col>
     </v-row>
