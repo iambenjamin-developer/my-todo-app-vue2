@@ -7,8 +7,7 @@
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field v-model="name" :counter="10" :rules="nameRules" label="To Do Item" required></v-text-field>
 
-          <v-btn color="primary" class="mr-6" @click="reset">Add</v-btn>
-
+          <v-btn color="primary" class="mr-6" v-on:click="addToDoItem('nuevo')">Add</v-btn>
         </v-form>
       </v-col>
     </v-row>
@@ -29,19 +28,38 @@
                 <td>{{ toDoItem.id }}</td>
                 <td>{{ toDoItem.name }}</td>
                 <td>
-                  <v-btn v-if="toDoItem.isCompleted" class="ma-2" color="green" dark>
+                  <v-btn
+                    v-if="toDoItem.isCompleted"
+                    v-on:click="markToDoItemAsIncompleted(toDoItem.id)"
+                    class="ma-2"
+                    color="green"
+                    dark
+                  >
                     Done
                     <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
                   </v-btn>
 
-                  <v-btn v-else class="ma-2" color="warning" dark>
+                  <v-btn
+                    v-else
+                    v-on:click="markToDoItemAsDone(toDoItem.id)"
+                    class="ma-2"
+                    color="warning"
+                    dark
+                  >
                     Incompleted
                     <v-icon dark right>mdi-minus-circle</v-icon>
                   </v-btn>
                 </td>
 
                 <td>
-                  <v-btn class="mx-2" fab dark small color="red">
+                  <v-btn
+                    v-on:click="deleteToDoItemById(toDoItem.id)"
+                    class="mx-2"
+                    fab
+                    dark
+                    small
+                    color="red"
+                  >
                     <v-icon dark>mdi-delete</v-icon>
                   </v-btn>
                 </td>
@@ -96,6 +114,23 @@ export default {
   data: () => ({
     result: null
   }),
+  methods: {
+    addToDoItem(name) {
+
+      alert(`addToDoItem: ${name}`)
+    },
+    deleteToDoItemById(toDoItemId) {
+
+      alert(`deleteToDoItemById: ${toDoItemId}`)
+    },
+    markToDoItemAsIncompleted(toDoItemId) {
+      alert(`markToDoItemAsIncompleted: ${toDoItemId}`)
+    },
+    markToDoItemAsDone(toDoItemId) {
+      alert(`markToDoItemAsDone: ${toDoItemId}`)
+    }
+  },
+
   created() {
     apiBackend.get('/TodoItems')
       .then((result) => {
