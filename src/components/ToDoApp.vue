@@ -24,10 +24,18 @@
           <template v-slot:default>
             <thead>
               <tr>
-                <th><strong>ID</strong></th>
-                <th><strong>NAME</strong></th>
-                <th><strong>STATE</strong></th>
-                <th><strong>DELETE</strong></th>
+                <th>
+                  <strong>ID</strong>
+                </th>
+                <th>
+                  <strong>NAME</strong>
+                </th>
+                <th>
+                  <strong>STATE</strong>
+                </th>
+                <th>
+                  <strong>DELETE</strong>
+                </th>
               </tr>
             </thead>
             <tbody>
