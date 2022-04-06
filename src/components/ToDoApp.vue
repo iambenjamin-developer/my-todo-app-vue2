@@ -90,7 +90,6 @@
 <script>
 import axios from "axios"
 
-
 const apiBackend = axios.create({
   baseURL: 'http://localhost:4575/api'
 })
@@ -108,7 +107,6 @@ apiBackend.get('/TodoItems')
     console.log(`Get All TodoItems has been executed - Status Code:${statusCode}`);
   })
 */
-
 
 export default {
   data: () => ({
