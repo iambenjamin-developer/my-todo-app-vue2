@@ -127,14 +127,23 @@ export default {
       }
       apiBackend.post('/TodoItems', body)
         .then(response => {
-          const result = response.data;
-          alert(JSON.stringify(result));
+
+          const statusCode = response.status;
+          alert(statusCode);
           window.location.reload();
+
         })
     },
     deleteToDoItemById(toDoItemId) {
 
-      alert(`deleteToDoItemById: ${toDoItemId}`)
+      apiBackend.delete(`/TodoItems/${toDoItemId}`)
+        .then(response => {
+
+          const statusCode = response.status;
+          alert(statusCode);
+          window.location.reload();
+          
+        })
     },
     markToDoItemAsIncompleted(toDoItemId) {
       alert(`markToDoItemAsIncompleted: ${toDoItemId}`)
