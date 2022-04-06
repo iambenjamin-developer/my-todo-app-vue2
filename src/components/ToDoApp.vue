@@ -86,6 +86,9 @@ const apiBackend = axios.create({
   baseURL: 'https://localhost:44305/api'
 })
 
+const refreshTable = () => {
+  window.location.reload();
+}
 /*
 apiBackend.get('/TodoItems')
   .then(response => {
@@ -129,8 +132,8 @@ export default {
         .then(response => {
 
           const statusCode = response.status;
-          alert(statusCode);
-          window.location.reload();
+          console.log(`New ToDoItem:'${toDoItemName}' has been added - Status Code:${statusCode}`);
+          refreshTable()
 
         })
     },
@@ -140,16 +143,40 @@ export default {
         .then(response => {
 
           const statusCode = response.status;
-          alert(statusCode);
-          window.location.reload();
-          
+          console.log(`ToDoItemId:'${toDoItemId}' has been deleted - Status Code:${statusCode}`);
+          refreshTable()
+
         })
     },
     markToDoItemAsIncompleted(toDoItemId) {
-      alert(`markToDoItemAsIncompleted: ${toDoItemId}`)
+
+      let body = {
+        markAsCompleted: false
+      }
+
+      apiBackend.put(`/TodoItems/${toDoItemId}`, body)
+        .then(response => {
+
+          const statusCode = response.status;
+          console.log(`ToDoItemId:'${toDoItemId}' has been marked as incompleted - Status Code:${statusCode}`);
+          refreshTable()
+
+        })
     },
     markToDoItemAsDone(toDoItemId) {
-      alert(`markToDoItemAsDone: ${toDoItemId}`)
+
+      let body = {
+        markAsCompleted: true
+      }
+
+      apiBackend.put(`/TodoItems/${toDoItemId}`, body)
+        .then(response => {
+
+          const statusCode = response.status;
+          console.log(`ToDoItemId:'${toDoItemId}' has been marked as done - Status Code:${statusCode}`);
+          refreshTable()
+
+        })
     }
   },
 
