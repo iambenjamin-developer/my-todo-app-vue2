@@ -20,14 +20,14 @@
     </v-row>
     <v-row class="text-left">
       <v-col cols="12">
-        <v-simple-table dark>
+        <v-simple-table>
           <template v-slot:default>
             <thead>
               <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>State</th>
-                <th>Delete</th>
+                <th><strong>ID</strong></th>
+                <th><strong>NAME</strong></th>
+                <th><strong>STATE</strong></th>
+                <th><strong>DELETE</strong></th>
               </tr>
             </thead>
             <tbody>
