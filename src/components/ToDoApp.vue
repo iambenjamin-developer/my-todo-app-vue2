@@ -84,7 +84,7 @@ import axios from "axios"
 
 
 const apiBackend = axios.create({
-  baseURL: 'https://localhost:44305/api'
+  baseURL: 'http://localhost:4575/api'
 })
 
 const refreshTable = () => {
