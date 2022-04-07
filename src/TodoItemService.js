@@ -8,21 +8,32 @@ class TodoItemService {
         return axios.get(API_BASE_URL);
     }
 
-    createTodoItem(todoItem) {
-        return axios.post(API_BASE_URL, todoItem);
+    addToDoItem(todoItemName) {
+
+        let body = {
+            name: toDoItemName
+        }
+        
+        axios.post(API_BASE_URL, body)
+            .then(response => {
+
+                return response.status;
+            })
     }
 
-    getTodoItemById(todoItemId) {
-        return axios.get(API_BASE_URL + '/' + todoItemId);
+    deleteTodoItem(todoItemId) {
+        return axios.delete(API_BASE_URL + '/' + todoItemId);
     }
 
     updateTodoItem(todoItem, todoItemId) {
         return axios.put(API_BASE_URL + '/' + todoItemId, todoItem);
     }
 
-    deleteTodoItem(todoItemId) {
-        return axios.delete(API_BASE_URL + '/' + todoItemId);
+    updateTodoItem2(todoItem, todoItemId) {
+        return axios.put(API_BASE_URL + '/' + todoItemId, todoItem);
     }
+
+
 }
 
 export default new TodoItemService()
