@@ -26,9 +26,9 @@ class TodoItemService {
 
 
 
-    deleteToDoItemById(id) {
+    deleteToDoItemById(todoItemId) {
 
-        axios.delete(`${API_BASE_URL}/${id}`)
+        axios.delete(`${API_BASE_URL}/${todoItemId}`)
             .then(response => {
 
                 return response.status;
