@@ -133,33 +133,16 @@ export default {
     },
     markToDoItemAsIncompleted(toDoItemId) {
 
-      let body = {
-        markAsCompleted: false
-      }
+      TodoItemService.markToDoItemAsIncompleted(toDoItemId);
 
-      apiBackend.put(`/TodoItems/${toDoItemId}`, body)
-        .then(response => {
-
-          const statusCode = response.status;
-          console.log(`ToDoItemId:'${toDoItemId}' has been marked as incompleted - Status Code:${statusCode}`);
-          refreshTable()
-
-        })
+      refreshTable();
     },
     markToDoItemAsDone(toDoItemId) {
 
-      let body = {
-        markAsCompleted: true
-      }
+      TodoItemService.markToDoItemAsDone(toDoItemId);
 
-      apiBackend.put(`/TodoItems/${toDoItemId}`, body)
-        .then(response => {
+      refreshTable();
 
-          const statusCode = response.status;
-          console.log(`ToDoItemId:'${toDoItemId}' has been marked as done - Status Code:${statusCode}`);
-          refreshTable()
-
-        })
     }
   },
 
