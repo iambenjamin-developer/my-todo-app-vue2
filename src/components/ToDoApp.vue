@@ -3,6 +3,11 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="30" />
+      
+        <h3>{{ $store.state.message }}</h3>
+        <h3>{{ $store.state.responseApiBackend[0].name }}</h3>
+        <h3>{{ $store.getters.getFullName }}</h3>
+
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field
             @keydown.enter="addToDoItem(toDoItemName)"
