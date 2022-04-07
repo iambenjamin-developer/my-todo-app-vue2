@@ -25,17 +25,16 @@ class TodoItemService {
     }
 
 
-    /*
-        deleteToDoItemById(todoItemId) {
-            axios.delete(`${API_BASE_URL}/${toDoItemId}`)
-                .then(response => {
-    
-                    const statusCode = response.status;
-                    console.log(`ToDoItemId:'${toDoItemId}' has been deleted - Status Code:${statusCode}`);
-    
-                })
-        }
-        */
+
+    deleteToDoItemById(id) {
+
+        axios.delete(`${API_BASE_URL}/${id}`)
+            .then(response => {
+
+                return response.status;
+            })
+    }
+
 
     markToDoItemAsDone(toDoItemId) {
 

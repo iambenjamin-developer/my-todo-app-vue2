@@ -88,12 +88,7 @@
 </template>
 
 <script>
-import axios from "axios"
 import TodoItemService from "@/TodoItemService";
-
-const apiBackend = axios.create({
-  baseURL: 'http://localhost:4575/api'
-})
 
 const refreshTable = () => {
 
@@ -112,16 +107,10 @@ export default {
       TodoItemService.addToDoItem(this.toDoItemName);
       refreshTable();
     },
-    deleteToDoItemById(toDoItemId) {
+    deleteToDoItemById(id) {
 
-      apiBackend.delete(`/TodoItems/${toDoItemId}`)
-        .then(response => {
-
-          const statusCode = response.status;
-          console.log(`ToDoItemId:'${toDoItemId}' has been deleted - Status Code:${statusCode}`);
-          refreshTable()
-
-        })
+      TodoItemService.deleteToDoItemById(id);
+      refreshTable();
     },
     markToDoItemAsIncompleted(toDoItemId) {
 
