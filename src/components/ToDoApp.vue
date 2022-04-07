@@ -89,6 +89,7 @@
 
 <script>
 import axios from "axios"
+import TodoItemService from "@/TodoItemService";
 
 const apiBackend = axios.create({
   baseURL: 'http://localhost:4575/api'
@@ -100,13 +101,6 @@ const refreshTable = () => {
 
 }
 
-/*
-apiBackend.get('/TodoItems')
-  .then(response => {
-    const statusCode = response.status;
-    console.log(`Get All TodoItems has been executed - Status Code:${statusCode}`);
-  })
-*/
 
 export default {
   data: () => ({
@@ -170,11 +164,10 @@ export default {
   },
 
   created() {
-    apiBackend.get('/TodoItems')
+    TodoItemService.getAllTodoItems()
       .then((result) => {
 
         this.result = result.data;
-
       })
   }
 };
