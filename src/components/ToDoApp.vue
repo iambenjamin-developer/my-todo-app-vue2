@@ -107,18 +107,10 @@ export default {
     result: null
   }),
   methods: {
-    addToDoItem(toDoItemName) {
-      let body = {
-        name: toDoItemName
-      }
-      apiBackend.post('/TodoItems', body)
-        .then(response => {
+    addToDoItem() {
 
-          const statusCode = response.status;
-          console.log(`New ToDoItem:'${toDoItemName}' has been added - Status Code:${statusCode}`);
-          refreshTable()
-
-        })
+      TodoItemService.addToDoItem(this.toDoItemName);
+      refreshTable();
     },
     deleteToDoItemById(toDoItemId) {
 

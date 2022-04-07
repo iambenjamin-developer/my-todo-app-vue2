@@ -2,28 +2,40 @@ import axios from 'axios';
 
 const API_BASE_URL = "http://localhost:4575/api/TodoItems";
 
+
 class TodoItemService {
 
     getAllTodoItems() {
         return axios.get(API_BASE_URL);
     }
+
+
+
+    addToDoItem(todoItemName) {
+
+        let body = {
+            name: todoItemName
+        }
+
+        axios.post(API_BASE_URL, body)
+            .then(response => {
+
+                return response.status;
+            })
+    }
+
+
     /*
-        addToDoItem(todoItemName) {
-    
-            let body = {
-                name: toDoItemName
-            }
-            
-            axios.post(API_BASE_URL, body)
+        deleteToDoItemById(todoItemId) {
+            axios.delete(`${API_BASE_URL}/${toDoItemId}`)
                 .then(response => {
     
-                    return response.status;
+                    const statusCode = response.status;
+                    console.log(`ToDoItemId:'${toDoItemId}' has been deleted - Status Code:${statusCode}`);
+    
                 })
         }
-    */
-    deleteTodoItem(todoItemId) {
-        return axios.delete(API_BASE_URL + '/' + todoItemId);
-    }
+        */
 
     markToDoItemAsDone(toDoItemId) {
 
