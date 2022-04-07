@@ -7,7 +7,7 @@ class TodoItemService {
     getAllTodoItems() {
         return axios.get(API_BASE_URL);
     }
-
+/*
     addToDoItem(todoItemName) {
 
         let body = {
@@ -20,7 +20,7 @@ class TodoItemService {
                 return response.status;
             })
     }
-
+*/
     deleteTodoItem(todoItemId) {
         return axios.delete(API_BASE_URL + '/' + todoItemId);
     }
