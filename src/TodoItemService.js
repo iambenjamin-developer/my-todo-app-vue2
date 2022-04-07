@@ -10,7 +10,6 @@ class TodoItemService {
     }
 
 
-
     addToDoItem(todoItemName) {
 
         let body = {
@@ -23,7 +22,6 @@ class TodoItemService {
                 return response.status;
             })
     }
-
 
 
     deleteToDoItemById(todoItemId) {
@@ -50,6 +48,7 @@ class TodoItemService {
             })
     }
 
+
     markToDoItemAsIncompleted(toDoItemId) {
 
         let body = {
@@ -63,7 +62,6 @@ class TodoItemService {
                 console.log(`ToDoItemId:'${toDoItemId}' has been marked as done - Status Code:${statusCode}`);
             })
     }
-
 
 }
 
