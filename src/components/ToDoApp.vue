@@ -107,23 +107,20 @@ export default {
       TodoItemService.addToDoItem(this.toDoItemName);
       refreshTable();
     },
-    deleteToDoItemById(id) {
+    deleteToDoItemById(todoItemId) {
 
-      TodoItemService.deleteToDoItemById(id);
+      TodoItemService.deleteToDoItemById(todoItemId);
       refreshTable();
     },
     markToDoItemAsIncompleted(toDoItemId) {
 
       TodoItemService.markToDoItemAsIncompleted(toDoItemId);
-
       refreshTable();
     },
     markToDoItemAsDone(toDoItemId) {
 
       TodoItemService.markToDoItemAsDone(toDoItemId);
-
       refreshTable();
-
     }
   },
 
